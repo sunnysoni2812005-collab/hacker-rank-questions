@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import deque 
+
+T = int(input()) 
+
+for _ in range(T): 
+
+    n = int(input()) 
+    cubes = deque(map(int, input().split())) 
+
+    last = float('inf') 
+
+    while cubes: 
+
+        if cubes[0] >= cubes[-1]:
+            chosen = cubes.popleft()
+        else:
+            chosen = cubes.pop() 
+
+        if chosen <= last: 
+            last = chosen
+        else:
+            print("No")
+            break
+
+    else:
+        print("Yes")
