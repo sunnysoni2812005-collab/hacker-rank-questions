@@ -1,0 +1,13 @@
+from collections import OrderedDict
+
+n = int(input())
+d = OrderedDict()
+
+for _ in range(n):
+    *name, price = input().split()
+    name = " ".join(name)
+
+    d[name] = d.get(name, 0) + int(price)
+
+for item, total in d.items():
+    print(item, total)
